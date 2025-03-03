@@ -15,7 +15,6 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
 public class BrowserstackDriver implements WebDriverProvider {
 
     private static final DeviceConfig config = ConfigFactory.create(DeviceConfig.class);
