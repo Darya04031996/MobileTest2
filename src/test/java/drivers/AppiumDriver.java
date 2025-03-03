@@ -24,7 +24,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 
 public class AppiumDriver implements WebDriverProvider {
 
-    private static final DeviceConfig config = ConfigFactory.create(DeviceConfig.class);
+     static  DeviceConfig deviceConfig = ConfigFactory.create(DeviceConfig.class,System.getProperties());
 
     @Nonnull
     @Override
@@ -33,19 +33,17 @@ public class AppiumDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
-                .setPlatformName(config.version())
-                .setDeviceName(config.device())
+                .setPlatformVersion(deviceConfig.version())
+                .setDeviceName(deviceConfig.device())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
-                .setAppActivity("org.wikipedia.main.MainActivity")
-                .setLanguage(config.language())
-                .setLocale(config.locale());
+                .setAppActivity("org.wikipedia.main.MainActivity");
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(config.url());
+            return new URL(deviceConfig.url());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

@@ -46,5 +46,6 @@ void openArticleFromSearchTest() {
             $(AppiumBy.id("org.wikipedia.alpha:id/view_wiki_error_text"))
                     .shouldHave(text("An error occurred")));
 }
+
 }
 
