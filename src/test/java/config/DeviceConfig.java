@@ -11,6 +11,6 @@ public interface DeviceConfig extends Config {
 
     String version();
 
-    String url();
+    String deviceUrl();
 
 }

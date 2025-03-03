@@ -43,7 +43,7 @@ public class AppiumDriver implements WebDriverProvider {
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(deviceConfig.url());
+            return new URL(deviceConfig.deviceUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
